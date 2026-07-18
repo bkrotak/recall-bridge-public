@@ -9,7 +9,7 @@
 5. Short tasks return immediately. Long tasks receive a job ID and run detached.
 6. The result returns through the same transport that delivered the command.
 
-The private GitHub issue is the default no-server transport. The optional relay can run alongside it; configuring the relay does not disable GitHub polling. Git repositories remain the source of truth for project code.
+The private GitHub issue is the default transport and requires no CouchCode-hosted backend. The optional relay can run alongside it; configuring the relay does not disable GitHub polling. Git repositories remain the source of truth for project code.
 
 ## Trust boundaries
 

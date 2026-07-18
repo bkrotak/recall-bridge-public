@@ -1,10 +1,10 @@
 # CouchCode
 
-**CouchCode — Permissioned AI development from your phone** connects authorized AI workflows to tightly scoped development actions on Android.
+**CouchCode — Self-owned, no-subscription AI development from your phone** connects authorized AI workflows to tightly scoped development actions on Android.
 
-> **Alpha:** CouchCode is an early bring-your-own-infrastructure template for experienced developers. It is not a hosted service or a general-purpose remote shell.
+> **Alpha:** CouchCode is free, open-source, and designed to run on infrastructure you control. It is an early template for experienced developers—not a hosted service or a general-purpose remote shell.
 
-It connects an authorized AI or chat workflow to a local phone agent without opening your phone as a general remote shell. CouchCode is model-agnostic: OpenAI, Gemini, Claude, local models, scripts, and other tools can use it if they can create an approved command in your private control repository.
+It connects an authorized AI or chat workflow to a local phone agent without opening your phone as a general remote shell. CouchCode is model-agnostic: hosted models, local models, scripts, and other tools can use it if they can create an approved command in your private control repository.
 
 It does not grant an AI blanket phone access. The same GitHub, device, project, and command allowlists apply to every caller.
 
@@ -12,7 +12,13 @@ It does not grant an AI blanket phone access. The same GitHub, device, project, 
 Authorized command → private control issue → GitHub Actions → Firebase → CouchCode app → Termux agent
 ~~~
 
-The practical idea is simple: if the work is already in your Git repositories, you should be able to check status, run approved tests, start a build, review a result, or create a safe follow-up workflow from your phone—without needing to sit at a desktop.
+The practical idea is simple: if the work is already in your Git repositories, you should be able to check status, run approved tests, start a build, review a result, or create a safe follow-up workflow from your phone—without moving your development environment into a paid cloud workspace.
+
+## Why CouchCode
+
+Cloud workspaces are convenient, CI services are excellent at repeatable automation, and SSH is effective for direct administration. CouchCode serves a different need: it keeps execution on your own Android/Termux environment and exposes named, allowlisted development actions to an AI workflow.
+
+There is no CouchCode subscription or mandatory CouchCode-hosted backend. You supply the phone, GitHub account, and optional Firebase or relay infrastructure. Normal provider quotas, bandwidth, and device costs still apply.
 
 ## What CouchCode does
 
@@ -22,14 +28,14 @@ The practical idea is simple: if the work is already in your Git repositories, y
 - Keeps sensitive actions disabled until they are explicitly enabled in the phone's local configuration.
 - Lets a user register projects deliberately, then control checks, jobs, and commit paths.
 - Uses a separate private control repository for commands and results.
-- Supports a no-server path using GitHub Actions and Firebase; a hosted relay remains optional.
+- Requires no CouchCode account or subscription; the default path uses your own GitHub Actions and Firebase configuration, with a hosted relay optional.
 - Supports durable Android signing so future APK updates can preserve app setup.
 
 ## What it is not
 
-CouchCode is not a general remote shell, a hidden phone controller, or a shared public command endpoint. It should not receive credentials in issues, source files, screenshots, or chat messages.
+CouchCode is not a cloud IDE, a general remote shell, a hidden phone controller, or a shared public command endpoint. It should not receive credentials in issues, source files, screenshots, or chat messages.
 
-This repository is a **public-ready, bring-your-own-infrastructure template**. It contains no Firebase project, device ID, FCM token, GitHub credential, service-account key, signing key, or personal project configuration.
+This repository is a **free, public, bring-your-own-infrastructure template**. It contains no Firebase project, device ID, FCM token, GitHub credential, service-account key, signing key, or personal project configuration.
 
 ## Start here
 

@@ -1,6 +1,6 @@
 # Public Template Setup
 
-CouchCode can run without a hosted relay. Each installation uses the user's own Firebase project, private GitHub control issue, Android app, and Termux configuration. The public source repository must never double as the command channel.
+CouchCode is free and can run without a CouchCode-hosted service or relay. Each installation uses the user's own Firebase project, private GitHub control issue, Android app, and Termux configuration. The public source repository must never double as the command channel. GitHub, Firebase, bandwidth, and device costs or quotas remain the user's responsibility.
 
 ## 1. Fork or copy the template
 
