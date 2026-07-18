@@ -1,0 +1,54 @@
+name: Wake CouchCode Device
+
+on:
+  workflow_dispatch:
+    inputs:
+      device_id:
+        description: Device ID (uses COUCHCODE_DEVICE_ID variable when blank)
+        required: false
+        type: string
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  wake:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.actor == github.repository_owner &&
+        format('{0}', github.event.issue.number) == vars.COUCHCODE_CONTROL_ISSUE &&
+        startsWith(github.event.comment.body, 'couchcode:')
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Authenticate Firebase sender
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          token_format: access_token
+          create_credentials_file: false
+
+      - name: Send private wake signal
+        env:
+          ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          DEVICE_ID: ${{ inputs.device_id || vars.COUCHCODE_DEVICE_ID }}
+          FCM_TOKEN: ${{ secrets.COUCHCODE_FCM_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          test -n "$DEVICE_ID"
+          test -n "$FCM_TOKEN"
+          PROJECT_ID="$(printf '%s' "$FIREBASE_SERVICE_ACCOUNT" | jq -r '.project_id')"
+          PAYLOAD="$(jq -n \
+            --arg token "$FCM_TOKEN" \
+            --arg deviceId "$DEVICE_ID" \
+            '{message:{token:$token,data:{action:"wake",deviceId:$deviceId}}}')"
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://fcm.googleapis.com/v1/projects/$PROJECT_ID/messages:send" \
+            -d "$PAYLOAD"

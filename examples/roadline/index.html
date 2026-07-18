@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadline — Find your next drive</title>
+  <style>
+    :root { --ink:#0b1220; --muted:#6e7786; --lime:#caff35; --line:#e7e9ed; --paper:#fafafa; }
+    * { box-sizing:border-box } body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    nav { height:76px; padding:0 clamp(24px,5vw,76px); display:flex; justify-content:space-between; align-items:center; background:#fff; border-bottom:1px solid var(--line); }
+    .brand { font-size:22px; font-weight:900; letter-spacing:-1.2px }.brand i { display:inline-block; width:10px; height:10px; background:var(--lime); border-radius:50%; margin:0 2px 2px 3px }
+    nav a { color:var(--ink); text-decoration:none; font-size:14px; font-weight:700; margin-left:26px } .menu { display:flex; align-items:center }
+    .navcta,.cta { background:var(--ink); color:#fff!important; padding:12px 17px; border-radius:9px; margin-left:28px!important }
+    .hero { min-height:640px; padding:72px clamp(24px,8vw,120px); color:white; position:relative; overflow:hidden; display:flex; align-items:center;
+      background:linear-gradient(90deg,rgba(5,10,21,.96) 0%,rgba(5,10,21,.72) 43%,rgba(5,10,21,.16) 100%),url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=85') center/cover; }
+    .hero-copy { max-width:650px; position:relative; z-index:1 }.eyebrow { color:var(--lime); text-transform:uppercase; letter-spacing:2px; font-size:11px; font-weight:900 }
+    h1 { margin:14px 0 20px; font-size:clamp(49px,7.5vw,92px); line-height:.92; letter-spacing:-5px; max-width:620px } .hero p { max-width:470px; line-height:1.65; font-size:17px; color:#d8dce5 }
+    .search { margin-top:35px; padding:10px; max-width:610px; display:flex; gap:9px; background:#fff; border-radius:13px; box-shadow:0 20px 45px #0005 }
+    .search div { flex:1; padding:9px 13px; color:#6c7380; font-size:11px; font-weight:800; border-right:1px solid var(--line) }.search strong { display:block; color:var(--ink); font-size:14px; margin-top:4px }.search button { border:0; background:var(--lime); color:var(--ink); padding:0 21px; border-radius:8px; font-weight:900; cursor:pointer }
+    main { max-width:1280px; margin:auto; padding:78px 28px }.section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:28px }.section-head h2 { letter-spacing:-1.8px; font-size:32px; margin:0 }.section-head a { color:var(--ink); font-size:14px; font-weight:800 }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:19px }.card { overflow:hidden; border-radius:15px; background:#fff; border:1px solid var(--line); transition:.2s transform,.2s box-shadow }.card:hover { transform:translateY(-5px); box-shadow:0 18px 35px #10182812 }.car-img { width:100%; height:210px; object-fit:cover; display:block }.detail { padding:19px }.tags { color:var(--muted); font-size:12px; font-weight:700 }.detail h3 { font-size:20px; letter-spacing:-.7px; margin:8px 0 17px }.bottom { border-top:1px solid var(--line); padding-top:15px; display:flex; justify-content:space-between; align-items:center; font-weight:900 }.price { font-size:18px }.pill { color:#486000; background:#e8ffab; border-radius:999px; padding:6px 9px; font-size:11px }
+    .banner { margin-top:75px; border-radius:18px; padding:55px clamp(28px,6vw,80px); background:#d4ff4f; display:flex; align-items:center; justify-content:space-between; gap:30px }.banner h2 { margin:0; max-width:570px; font-size:clamp(28px,4vw,48px); line-height:1; letter-spacing:-2.5px }.banner a { white-space:nowrap; padding:14px 18px; background:var(--ink); border-radius:9px; color:#fff; text-decoration:none; font-size:14px; font-weight:900 }
+    footer { padding:32px clamp(24px,5vw,76px); color:#89909c; border-top:1px solid var(--line); font-size:13px; display:flex; justify-content:space-between }
+    @media(max-width:760px){ nav { height:65px }.menu a:not(.navcta){display:none}.navcta{margin-left:10px!important}.hero{min-height:600px;padding:55px 25px;align-items:end}h1{letter-spacing:-3px}.search{display:grid;grid-template-columns:1fr 1fr}.search div{border-right:0;border-bottom:1px solid var(--line)}.search button{height:46px}.grid{grid-template-columns:1fr}.banner{display:block}.banner a{display:inline-block;margin-top:25px}footer{display:block}footer span{display:block;margin-top:9px}}
+  </style>
+</head>
+<body>
+  <nav><div class="brand">ROADL<i></i>NE</div><div class="menu"><a href="#inventory">Inventory</a><a href="#why">Why Roadline</a><a href="#sell">Sell your car</a><a class="navcta" href="#inventory">Browse cars</a></div></nav>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Curated vehicles. No pressure.</div>
+      <h1>Find your next drive.</h1>
+      <p>Premium used cars selected for the way you actually live. Transparent details, clean design, and a better way to shop from the couch.</p>
+      <div class="search"><div>MAKE <strong>Any make</strong></div><div>PRICE <strong>Any price</strong></div><div>BODY STYLE <strong>All styles</strong></div><button>Search</button></div>
+    </div>
+  </section>
+  <main>
+    <section id="inventory"><div class="section-head"><div><div class="eyebrow" style="color:#668200">Fresh picks</div><h2>Worth a closer look</h2></div><a href="#">View all inventory →</a></div>
+      <div class="grid">
+        <article class="card"><img class="car-img" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1000&q=85" alt="Classic coupe"><div class="detail"><div class="tags">2021 · 31k miles · Automatic</div><h3>Ford Mustang GT Premium</h3><div class="bottom"><span class="price">$38,900</span><span class="pill">Great value</span></div></div></article>
+        <article class="card"><img class="car-img" src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1000&q=85" alt="Luxury sports car"><div class="detail"><div class="tags">2022 · 18k miles · Automatic</div><h3>BMW M440i xDrive</h3><div class="bottom"><span class="price">$49,450</span><span class="pill">Just listed</span></div></div></article>
+        <article class="card"><img class="car-img" src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1000&q=85" alt="Sport utility vehicle"><div class="detail"><div class="tags">2023 · 14k miles · Automatic</div><h3>Land Rover Defender 110</h3><div class="bottom"><span class="price">$63,995</span><span class="pill">Low miles</span></div></div></article>
+      </div>
+    </section>
+    <section class="banner" id="sell"><h2>Your current car may be worth more than you think.</h2><a href="#">Get an offer in minutes</a></section>
+  </main>
+  <footer><b class="brand" style="color:#111">ROADL<i></i>NE</b><span>Mockup built as a CouchCode local-preview test.</span></footer>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "couchcode",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test agent/test/*.test.mjs",
+    "check": "node --check agent/agent.mjs && node --check agent/visual-capture.mjs && node --test agent/test/*.test.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

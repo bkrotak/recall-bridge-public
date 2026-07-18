@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:couchcode:schemas:command-v1.json",
+  "title": "CouchCode command",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "id", "deviceId", "project", "action", "args", "createdAt", "expiresAt"],
+  "properties": {
+    "version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-zA-Z0-9._:-]{8,100}$" },
+    "deviceId": { "type": "string", "minLength": 8, "maxLength": 100 },
+    "project": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$" },
+    "action": {
+      "enum": [
+        "status", "self_update", "list_projects", "create_repository", "register_project", "read_file", "search",
+        "apply_patch", "install", "run_check", "git_diff", "commit_push",
+        "start_job", "job_status", "job_logs", "capture_web"
+      ]
+    },
+    "args": { "type": "object" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "requiresApproval": { "type": "boolean", "default": false },
+    "approved": { "type": "boolean", "default": false }
+  }
+}
